@@ -1,0 +1,156 @@
+<html>
+<head>
+
+
+
+  <style>
+  *{
+        -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    }
+
+[ng-drag] {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+[ng-drag] {
+    width: 100px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.5);
+    color: #131313;
+    display: inline-block;
+    margin: 0 10px;
+  margin-top: 17px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+ul.draggable-objects:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.draggable-objects li {
+    float: left;
+    display: block;
+    width: 120px;
+    height: 100px;
+    
+}
+
+[ng-drag].drag-over {
+    border: solid 1px red;
+}
+
+[ng-drag].dragging {
+    opacity: 0.5;
+}
+
+[ng-drop] {
+    background: rgba(222,333, 444, 555);
+    text-align: center;
+	width: 506px;
+    height: 98px;
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    border: 1px solid #red;
+    border-radius: 8px;
+}
+
+[ng-drop].drag-enter {
+    border: solid 5px black;
+	 border-style:dotted;
+}
+
+[ng-drop] span.title {
+
+    position: absolute;
+    top: 38%;
+    left: -10%;
+    width: 200px;
+    height: 20px;
+   font-size: 50px;
+       margin-left: -100px;
+}
+
+[ng-drop] div {
+    position: relative;
+    z-index: 2;
+}
+.list-of-drag-item
+{
+    height: 83px;
+    background-color: #f7f7f7;
+}
+
+ img {
+    height: 78px;
+    max-width: 100%;
+    margin-right: 50px;
+	margin-top: -40px;
+   
+}
+
+
+
+  </style>
+</head>
+
+<body ng-app="login" ng-controller="loginctrl">
+
+  <div class="container">
+
+     <div class="row">
+      <h1>Drag and drop</h1>
+    </div>
+	<hr>
+
+
+
+    
+    <div ng-drop="true" ng-drop-success="onDropComplete1($data,$event)" ng-click="onTargetClick(droppedObjects1, $event)">
+	<span class="title">1</span>
+        <div ng-repeat="obj in droppedObjects1" ng-drag="true" ng-drag-data="obj" ng-drag-success="onDragSuccess1($data,$event)" ng-center-anchor="{{centerAnchor}}" ng-click="onElementClick($event, obj, droppedObjects1)" ng-class="{active: activeElement.name === obj.name}">
+            {{obj.name}}
+        </div>
+    </div>
+
+    <div ng-drop="true" ng-drop-success="onDropComplete2($data,$event)" ng-click="onTargetClick(droppedObjects2, $event)">
+	 <span class="title">2</span>
+        <div ng-repeat="obj in droppedObjects2" ng-drag="true" ng-drag-data="obj"
+             ng-drag-success="onDragSuccess2($data,$event)" ng-center-anchor="{{centerAnchor}}" ng-click="onElementClick($event, obj, droppedObjects2)" ng-class="{active: activeElement.name === obj.name}">
+            {{obj.name}}
+        </div>
+    </div>
+	
+	<div ng-drop="true" ng-drop-success="onDropComplete3($data,$event)" ng-click="onTargetClick(droppedObjects3, $event)">
+	 <span class="title">3</span>
+        <div ng-repeat="obj in droppedObjects3" ng-drag="true" ng-drag-data="obj"
+             ng-drag-success="onDragSuccess3($data,$event)" ng-center-anchor="{{centerAnchor}}" ng-click="onElementClick($event, obj, droppedObjects3)" ng-class="{active: activeElement.name === obj.name}">
+            {{obj.name}}
+        </div>
+    </div>
+
+
+
+    <ul class="list-of-drag-item" ng-drop="true" ng-drop-success="onDropComplete0($data,$event)" ng-click="onTargetClick(droppedObjects0, $event)">
+        <li ng-click="onElementClick($event, obj, droppedObjects0)"  ng-repeat="obj in droppedObjects0" ng-drag="true" ng-drag-data="obj"
+            ng-drag-success="onDragSuccess0($data,$event)" ng-center-anchor="{{centerAnchor}}" ng-class="{active: activeElement.name === obj.name}">
+           {{obj.name}}
+        </li>
+    </ul>
+ <div id="bin" style="float:right">	
+			<img alt="" src="/drag/trash.png" />
+			</div>
+	
+</div>
+
+   <button ng-click="logResults()">log results</button>
+</body>
+</html>

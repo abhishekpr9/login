@@ -1,0 +1,82 @@
+
+
+body {
+  	
+    background-color:#a7c3f2;
+     /* For browsers that do not support gradients */    
+    /* background: -webkit-linear-gradient(left top, #000099, ##0066cc);  
+    background: -o-linear-gradient(bottom right, #000099, #0066cc);  
+    background: -moz-linear-gradient(bottom right, #000099, #0066cc); 
+    background: linear-gradient(to bottom right, #000099, #0066cc);   */
+    background-size: cover;
+    font-size: 25px;
+    font-weight: 100;
+}
+
+@media only screen and (max-width: 1300px) {
+    body {
+        background-size: auto;
+        box-sizing: border-box;
+		
+
+    }
+}
+
+
+#container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#form_box {
+  background: rgba(0, 0, 0, 0.5);
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+  padding:25px;
+}
+
+#form_heading {
+  color: #ff7b00;
+  padding: 15px 0 0 10px;
+  font-family: 'Raleway', 'arial';
+  font-weight: 100;
+  font-size: 1.5em;
+}
+
+input {
+  background: none;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #DDDDDD;
+  color: white;
+  font-family: 'Raleway', 'arial';
+  font-weight: 100;
+  font-size: 17px;
+}
+input:focus {
+  box-shadow: 0 0 10px rgba(255, 123, 0, 1);
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid rgba(255, 123, 0, 1);
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
